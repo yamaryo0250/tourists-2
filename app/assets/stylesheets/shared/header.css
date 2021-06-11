@@ -1,0 +1,38 @@
+.header {
+  background-color: #f0f0f0;
+}
+
+.heading {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.top__nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  margin-left: 5vw;
+}
+
+.nav__right {
+  margin: auto 0;
+  margin-right: 5vw;
+}
+
+.nav__btn {
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 1.0em;
+  color: #008000;
+  text-decoration: none;
+  user-select: none;
+  transition: 0.4s ease;
+}
+.nav__btn:hover{
+  color: #fff;
+  background: #008000;
+}
