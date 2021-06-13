@@ -1,0 +1,9 @@
+<div class="card">
+  <div class= "card__body">
+    <%= link_to touring.plan, touring_path(touring.id), class: :card__title %>
+    <p class= "card__summary">
+      <%= "内容: #{touring.text}" %>
+    </p>
+    <%= link_to "by #{touring.user.nickname}", user_path(touring.user.id), class: :card__user %>
+  </div>
+</div>
