@@ -14,6 +14,7 @@ class TouringsController < ApplicationController
 
   def create
     @touring = Touring.create(touring_params)
+    @touring.user_id = current_user.id
     if @touring.save
       redirect_to root_path
     else
