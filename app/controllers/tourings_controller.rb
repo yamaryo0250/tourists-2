@@ -4,6 +4,7 @@ class TouringsController < ApplicationController
   before_action :redirect, only: [:edit, :update, :destroy]
   
   def index
+    @tourings = Touring.order('created_at DESC')
   end
 
   def new
