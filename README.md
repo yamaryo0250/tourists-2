@@ -76,8 +76,7 @@
 
 ### Association
 
-- has_many : touring_users
-- has_many : tourings through: :touring_users
+- has_many : tourings
 - has_many : comments
 
  ## tourings テーブル
@@ -95,8 +94,8 @@
 
 ### Association
 
-- has_many :touring_users
-- has_many : users, through: :touring_users
+- belongs_to : user
+- has_many :comments
 
 ## comments テーブル
 
@@ -105,18 +104,6 @@
 | text               | text       | null: false |
 | user               | references | null: false |
 | ride               | references | null: false |
-
-### Association
-
-- belongs_to : user
-- belongs_to : ride
-
-
-## touring_users テーブル
-| Column             | Type       | Options     |
-| -------------------| -----------| ----------- |
-| user               | references | null: false, foreign_key: true |
-| touring            | references | null: false, foreign_key: true |
 
 ### Association
 

@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :touring_users
-  has_many :tourings, through: :touring_users
+  has_many :tourings
 
   with_options presence: true do
   validates :nickname

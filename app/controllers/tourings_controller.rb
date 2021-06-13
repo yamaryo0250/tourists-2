@@ -9,7 +9,7 @@ class TouringsController < ApplicationController
 
   def new
     @touring = Touring.new
-    @touring.users << current_user
+    # @touring.users << current_user
   end
 
   def create
@@ -28,25 +28,32 @@ class TouringsController < ApplicationController
   end
 
   def update
+    if @touring.update(touring_params)
+      redirect_to touring_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @touring.destroy
+    redirect_to root_path
   end
 
 
   private
 
   def touring_params
-    params.require(:touring).permit(:plan, :displacement_id, :text, :style_id, :term_id, :area_id, :day, user_ids: []).merge(user_id: current_user.id)
+    params.require(:touring).permit(:plan, :displacement_id, :text, :style_id, :term_id, :area_id, :day).merge(user_id: current_user.id)
   end
 
   def touring_find
     @touring = Touring.find(params[:id])
   end
 
-  # def redirect
-  #   redirect_to action: :index unless current_user.id == @touring.user_id
-  # end
-
-
+  def redirect
+    redirect_to action: :index unless current_user.id == @touring.user_id
+  end
+  
 end
+

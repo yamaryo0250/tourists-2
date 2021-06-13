@@ -5,8 +5,7 @@ class Touring < ApplicationRecord
   belongs_to :term
   belongs_to :area
 
-  has_many :touring_users
-  has_many :users, through: :touring_users
+  belongs_to :user
   
 
   with_options presence: true do
