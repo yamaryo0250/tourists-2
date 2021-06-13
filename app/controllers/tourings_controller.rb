@@ -28,9 +28,16 @@ class TouringsController < ApplicationController
   end
 
   def update
+    if @touring.update(touring_params)
+      redirect_to touring_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @touring.destroy
+    redirect_to root_path
   end
 
 
