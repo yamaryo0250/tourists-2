@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_080357) do
+ActiveRecord::Schema.define(version: 2021_06_13_041245) do
+
+  create_table "touring_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "touring_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["touring_id"], name: "index_touring_users_on_touring_id"
+    t.index ["user_id"], name: "index_touring_users_on_user_id"
+  end
+
+  create_table "tourings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "plan", null: false
+    t.integer "displacement_id", null: false
+    t.text "text", null: false
+    t.integer "style_id", null: false
+    t.integer "term_id", null: false
+    t.integer "area_id", null: false
+    t.date "day", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tourings_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -26,4 +49,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_080357) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "touring_users", "tourings"
+  add_foreign_key "touring_users", "users"
+  add_foreign_key "tourings", "users"
 end

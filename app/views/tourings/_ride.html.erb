@@ -1,9 +1,0 @@
-<div class="card">
-  <div class= "card__body">
-    <%= link_to ride.plan, ride_path(ride.id), class: :card__title %>
-    <p class= "card__summary">
-      <%= "内容: #{ride.text}" %>
-    </p>
-    <%= link_to "by #{ride.user.nickname}", user_path(ride.user.id), class: :card__user %>
-  </div>
-</div>
