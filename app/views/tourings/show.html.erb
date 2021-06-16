@@ -64,23 +64,18 @@
 
 
 
-
     <% if user_signed_in? %>
       <% if current_user.id == @touring.user_id  %>
         <div class= "ride__manage">
           <%= link_to "編集する", edit_touring_path(@touring.id), method: :get, class: "ride__btn" %>
           <%= link_to "削除する", touring_path(@touring.id) , method: :delete, class:"ride__btn" %>
         </div>
-      <% else %>
-        <div class="ride__manage">
-          <%= link_to "参加する", root_path,class:"participate__btn"%>
-        </div>
       <% end %>
     <% end %>
 
 
     <div class="participate__members">
-      <p class="any__members"> 参加予定メンバー </p>
+      <p class="any__members"> いいねしたメンバー </p>
     </div>
   </div>
 </div>
