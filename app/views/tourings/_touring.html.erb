@@ -4,6 +4,9 @@
     <p class= "card__summary">
       <%= "内容: #{touring.text}" %>
     </p>
+    <p class= "liked__count">
+      (<%= touring.liked_users.count %>)いいね
+    </p>
     <%= link_to "by #{touring.user.nickname}", user_path(touring.user.id), class: :card__user %>
   </div>
 </div>
