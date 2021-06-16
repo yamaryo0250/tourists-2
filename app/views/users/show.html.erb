@@ -32,6 +32,11 @@
       <%= render partial: 'tourings/touring', collection: @tourings %>
     </div>
   </div>
+  <h2 class="my-liked">お気に入りのプラン</h2>
+  <% @user.liked_tourings.each do |touring| %>
+    <%= touring.user.nickname %>
+    <%= touring.plan %>
+  <% end %>
 </div>
 
 <%= render "shared/footer" %>
