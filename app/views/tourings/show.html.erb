@@ -45,10 +45,21 @@
         </p>
       </div>
       <%= link_to "by #{@touring.user.nickname}", user_path(@touring.user.id), class: :ride__user %>
+
+      <p class="like__count">いいね件数: <%= @touring.likes.count %></p>
+      <% if current_user.already_liked?(@touring) %>
+        <%= button_to 'いいね取り消し', touring_like_path(@touring), method: :delete %>
+      <% else %>
+        <%= button_to 'いいね', touring_likes_path(@touring) %>
+      <% end %>
+      <p class="liked__user">いいね済みユーザー</p>
+      <% @touring.liked_users.each do |user| %>
+        <li><%= user.nickname %></li>
+      <% end %>
     </div>
 
 
-<%# 以下、未実装部分
+<%# 以下、未実装部分※参加機能を実装しようとして行き詰まった部分
 投稿機能と参加機能をまとめてtouringコントローラーで扱う場合、投稿者と参加者が同じ扱いになってしまう。編集、削除、参加の機能の場合分けができない。また、参加ボタンを押した時のリンク先の設定方法もわからない。 %>
 
 

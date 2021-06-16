@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  touring: one
+  user: one
+
+two:
+  touring: two
+  user: two
