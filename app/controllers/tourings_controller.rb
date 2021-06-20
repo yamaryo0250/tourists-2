@@ -14,6 +14,7 @@ class TouringsController < ApplicationController
 
   def create
     @touring = Touring.create(touring_params)
+    @touring.user_id = current_user.id
     if @touring.save
       redirect_to root_path
     else
@@ -43,8 +44,12 @@ class TouringsController < ApplicationController
 
   private
 
+  # def touring_params
+  #   params.require(:touring).permit(:plan, :displacement_id, :text, :style_id, :term_id, :area_id, :day).merge(user_id: current_user.id)
+  # end
+
   def touring_params
-    params.require(:touring).permit(:plan, :displacement_id, :text, :style_id, :term_id, :area_id, :day).merge(user_id: current_user.id)
+    params.require(:touring).permit(:plan, :displacement_id, :text, :style_id, :term_id, :area_id, :day)
   end
 
   def touring_find

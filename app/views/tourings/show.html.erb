@@ -48,9 +48,8 @@
     </div>
 
 
-<%# 以下、未実装部分
+<%# 以下、未実装部分※参加機能を実装しようとして行き詰まった部分
 投稿機能と参加機能をまとめてtouringコントローラーで扱う場合、投稿者と参加者が同じ扱いになってしまう。編集、削除、参加の機能の場合分けができない。また、参加ボタンを押した時のリンク先の設定方法もわからない。 %>
-
 
 
 
@@ -60,16 +59,21 @@
           <%= link_to "編集する", edit_touring_path(@touring.id), method: :get, class: "ride__btn" %>
           <%= link_to "削除する", touring_path(@touring.id) , method: :delete, class:"ride__btn" %>
         </div>
-      <% else %>
-        <div class="ride__manage">
-          <%= link_to "参加する", root_path,class:"participate__btn"%>
-        </div>
       <% end %>
     <% end %>
 
 
-    <div class="participate__members">
-      <p class="any__members"> 参加予定メンバー </p>
+    <div class="liked__members">
+      <% if current_user.already_liked?(@touring) %>
+        <%= button_to 'いいねしました', touring_like_path(@touring), method: :delete, class:"delete__like" %>
+      <% else %>
+        <%= button_to 'いいね', touring_likes_path(@touring), class:"get__like" %>
+      <% end %>
+      <p class="like__count">いいね件数: <%= @touring.likes.count %></p>
+      <p class="liked__users__list">いいねしたユーザー</p>
+      <% @touring.liked_users.each do |user| %>
+        <li class= 'liked__user'><%= user.nickname %></li>
+      <% end %>
     </div>
   </div>
 </div>

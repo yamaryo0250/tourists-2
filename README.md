@@ -97,13 +97,25 @@
 - belongs_to : user
 - has_many :comments
 
+## likes テーブル
+
+| Column             | Type       | Options     |
+| -------------------| -----------| ----------- |
+| user               | references | null: false |
+| touring            | references | null: false |
+
+### Association
+
+- belongs_to : touring
+- belongs_to : user
+
 ## comments テーブル
 
 | Column             | Type       | Options     |
 | -------------------| -----------| ----------- |
 | text               | text       | null: false |
 | user               | references | null: false |
-| ride               | references | null: false |
+| touring            | references | null: false |
 
 ### Association
 

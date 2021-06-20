@@ -7,12 +7,22 @@
   min-width: 450px;
   padding: 10vh 15vw;
   min-height: calc(100vh - 161px);
-  text-shadow: 0 0 10px white;
+  // text-shadow: 0 0 10px black;
+}
+
+.user-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
 }
 
 .page-heading {
   text-align: center;
   padding: 10px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px black;
 }
 
 .table {
@@ -42,10 +52,19 @@
 }
 
 .posts {
-  margin-left: 10vw;
+  margin-bottom: 8px;
 }
 
 .user__card {
   flex-wrap: wrap;
-  margin: 0 auto;
+}
+
+.info {
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.my_liked {
+  background-color: #f0f0f0;
+  width: calc((100% - 50px) / 3);
 }
