@@ -53,23 +53,6 @@
   margin: 0 4px;
 }
 
-.participate__btn {
-  display: block;
-  padding: 0.4em 1.6em;
-  font-size: 1em;
-  color: white;
-  background-color: red;
-  text-decoration: none;
-  user-select: none;
-  border-radius: 3px;
-  transition: 0.4s ease;
-}
-
-.participate__btn:hover {
-  color: red;
-  background-color: white;
-}
-
 .ride__detail {
   display: flex;
   align-items: center;
@@ -86,12 +69,34 @@
   color: #008000;
 }
 
-.participate__members {
+.liked__members {
   margin: 5vh;
+  text-align: center;
 }
 
-.any__members {
-  text-align: center;
-  font-size: 16px;
+.delete__like {
+  background-color:pink;
+  border-radius: 3px;
+  transition: 0.4s ease;
   font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+.get__like {
+  border-radius: 3px;
+  transition: 0.4s ease;
+  font-weight: bold;
+}
+
+.liked__users__list {
+  font-weight: bold;
+}
+
+.liked__user {
+
+}
+
+.like__count {
+  margin-bottom: 8px;
 }

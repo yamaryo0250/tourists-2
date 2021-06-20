@@ -45,17 +45,6 @@
         </p>
       </div>
       <%= link_to "by #{@touring.user.nickname}", user_path(@touring.user.id), class: :ride__user %>
-
-      <p class="like__count">いいね件数: <%= @touring.likes.count %></p>
-      <% if current_user.already_liked?(@touring) %>
-        <%= button_to 'いいね取り消し', touring_like_path(@touring), method: :delete %>
-      <% else %>
-        <%= button_to 'いいね', touring_likes_path(@touring) %>
-      <% end %>
-      <p class="liked__user">いいね済みユーザー</p>
-      <% @touring.liked_users.each do |user| %>
-        <li><%= user.nickname %></li>
-      <% end %>
     </div>
 
 
@@ -74,8 +63,17 @@
     <% end %>
 
 
-    <div class="participate__members">
-      <p class="any__members"> いいねしたメンバー </p>
+    <div class="liked__members">
+      <% if current_user.already_liked?(@touring) %>
+        <%= button_to 'いいねしました', touring_like_path(@touring), method: :delete, class:"delete__like" %>
+      <% else %>
+        <%= button_to 'いいね', touring_likes_path(@touring), class:"get__like" %>
+      <% end %>
+      <p class="like__count">いいね件数: <%= @touring.likes.count %></p>
+      <p class="liked__users__list">いいねしたユーザー</p>
+      <% @touring.liked_users.each do |user| %>
+        <li class= 'liked__user'><%= user.nickname %></li>
+      <% end %>
     </div>
   </div>
 </div>

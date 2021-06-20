@@ -24,19 +24,30 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="page-heading">
-    <%= "#{@user.nickname}の開催"%>
-  </h2>
-  <div class="posts">
-    <div class="user__card">
-      <%= render partial: 'tourings/touring', collection: @tourings %>
+
+  <div class="user-contents">
+    <h2 class="page-heading">
+      <%= "#{@user.nickname}の開催"%>
+    </h2>
+    <div class="posts">
+      <div class="user__card">
+        <%= render partial: 'tourings/touring', collection: @tourings %>
+      </div>
+      <% if @tourings.blank? %>
+        <p class = "info">開催プランはありません</p>
+      <% end %>
+    </div>
+    <h2 class="page-heading">お気に入りのプラン</h2>
+    <div class="my_liked">
+      <% @user.liked_tourings.each do |touring| %>
+        ・<%= touring.plan %>
+        by<%= touring.user.nickname %>
+      <% end %>
+      <%if @user.liked_tourings.blank? %>
+        <p class = "info">まだいいねしていません</p>
+      <% end %>
     </div>
   </div>
-  <h2 class="my-liked">お気に入りのプラン</h2>
-  <% @user.liked_tourings.each do |touring| %>
-    <%= touring.user.nickname %>
-    <%= touring.plan %>
-  <% end %>
 </div>
 
 <%= render "shared/footer" %>
