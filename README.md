@@ -3,7 +3,7 @@
 <br />
 
 ## App URL
-### https://tourist-me.herokuapp.com/
+### https://tourists-2.herokuapp.com/
 ### ユーザー名:admin　パスワード:2222
 <br />
 <br />
@@ -32,11 +32,17 @@
 ・投稿編集機能  
 ・投稿削除機能  
 ・マイページ機能
+・いいね機能
 <br />
 <br />
 
 ## アプリケーションイメージ
-
+トップページ
+![46caec6d2248eeabd0a78e5e3a73fe9a](https://user-images.githubusercontent.com/80947802/118604229-e01d1080-b7ef-11eb-8d8f-b3e7bf19c1e2.gif)  
+投稿ページ  
+[![Image from Gyazo](https://i.gyazo.com/cc6a6afcd29b928fee9e699d7838b861.jpg)](https://gyazo.com/cc6a6afcd29b928fee9e699d7838b861)
+投稿詳細ページへ遷移  
+![d392bf71cd7b7fb6f6d9913f1c1503b3](https://user-images.githubusercontent.com/80947802/122671413-64085500-d201-11eb-9a5a-dc414ec2391d.gif)
 <br />
 <br />
 
