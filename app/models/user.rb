@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :tourings
-  has_many :likes
+  has_many :tourings, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :liked_tourings, through: :likes, source: :touring
 
   with_options presence: true do

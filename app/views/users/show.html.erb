@@ -41,10 +41,10 @@
     <div class="my_liked">
       <% @user.liked_tourings.each do |touring| %>
         ・<%= touring.plan %>
-        by<%= touring.user.nickname %>
+        <%= link_to "by #{touring.user.nickname}", user_path(touring.user.id), class: :card__user %>
       <% end %>
       <%if @user.liked_tourings.blank? %>
-        <p class = "info">まだいいねしていません</p>
+        <p class = "info">登録されていません</p>
       <% end %>
     </div>
   </div>
