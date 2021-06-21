@@ -79,6 +79,7 @@
 | encrypted_password | string     | null: false |
 | nickname           | string     | null: false |
 | birthday           | date       | null: false |
+| user_icon          |string      |             |
 
 ### Association
 

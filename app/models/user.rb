@@ -16,4 +16,7 @@ class User < ApplicationRecord
   def already_liked?(touring)
     self.likes.exists?(touring_id: touring.id)
   end
+
+  mount_uploader :user_icon, ImageUploader
+
 end
