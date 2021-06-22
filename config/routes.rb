@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :tourings do
     resources :likes, only: [:create, :destroy]
   end
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit]
 end
