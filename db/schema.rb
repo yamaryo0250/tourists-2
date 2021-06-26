@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_095612) do
+ActiveRecord::Schema.define(version: 2021_06_13_041245) do
 
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "touring_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "touring_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["touring_id"], name: "index_likes_on_touring_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["touring_id"], name: "index_touring_users_on_touring_id"
+    t.index ["user_id"], name: "index_touring_users_on_user_id"
   end
 
   create_table "tourings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -45,12 +45,11 @@ ActiveRecord::Schema.define(version: 2021_06_21_095612) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "user_icon"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "likes", "tourings"
-  add_foreign_key "likes", "users"
+  add_foreign_key "touring_users", "tourings"
+  add_foreign_key "touring_users", "users"
   add_foreign_key "tourings", "users"
 end

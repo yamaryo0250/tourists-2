@@ -7,7 +7,12 @@
 
   <% if user_signed_in? %>
     <div class = login_rider>
-      <%= image_tag("rider.png", class: :rider_logo) %>
+      <%# <%= image_tag("rider.png", class: :rider_logo) %> 
+      <% if current_user.user_icon.file != nil%>
+        <%= image_tag current_user.user_icon.url, class:"my_icon" %>
+      <% else %>
+        <%= image_tag 'rider.png', class:"my_icon" %>
+      <% end %>
       <%= link_to (current_user.nickname), user_path(current_user.id), class: :login_user %>
     </div>
   <% end %>

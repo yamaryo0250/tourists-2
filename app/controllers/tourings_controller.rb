@@ -5,6 +5,12 @@ class TouringsController < ApplicationController
   
   def index
     @tourings = Touring.order('created_at DESC')
+    # @user = User.find(params[:id])
+    # if @user.user_icon.file != nil
+    #   @user_icon = @user.user_icon.url
+    # else
+    #   @user_icon = 'rider.png'
+    # end
   end
 
   def new
